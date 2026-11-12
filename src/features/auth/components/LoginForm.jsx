@@ -1,16 +1,15 @@
-import React from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router";
+import { ROUTES } from "@/constants";
 import { login } from "../services/authService";
 
 export function LoginForm({ onLogin }) {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  
   const [error, setError] = useState("");
-
   const handleLogin = (event) => {
     event.preventDefault();
-
     const user = login(username, password);
     if (!user) {
       setError("Sai tên đăng nhập hoặc mật khẩu");
@@ -43,7 +42,7 @@ export function LoginForm({ onLogin }) {
 
       {error && <p style={{ color: "red" }}>{error}</p>}
 
-      <p>Tài khoản thử: <b>admin / 123</b> (quản trị) hoặc <b>vanh / 123</b> (người dùng thường)</p>
+      <p>Tài khoản thử: <b>admin / 123</b> (quản trị) hoặc <b>lam / 123</b> (người dùng thường)</p>
     </form>
   );
 }

@@ -1,36 +1,7 @@
-import './App.css'
-
-function App() {
-  const [user, setUser] = useState(() => getCurrentUser());
-
-  const handleLogout = () => {
-    logout(); 
-    setUser(null); 
-  };
-
+export default function App() {
   return (
-    <Routes>
-     <Routes element={<MainLayout user={user} onLogout={handleLogout} />}>
-      <Route path={ROUTES.HOME} element={<HomePage />} />
-
-      <Route path={ROUTES.LOGIN} element={<LoginPage onLogin={setUser} />} />
-
-      <Route
-          path={ROUTES.ADMIN}
-          element={
-            <ProtectedRoute user={user} allowedRoles={[ROLES.ADMIN]}>
-              <AdminPage />
-            </ProtectedRoute>
-          }
-        />
-      
-      {/* Trang 403: ProtectedRoute chuyển tới đây khi không đủ quyền */}
-      <Route path={ROUTES.FORBIDDEN} element={<ForbiddenPage />} />
-      {/* path="*": mọi đường dẫn còn lại không khai báo ở trên đều là trang không tồn tại (404) */}
-      <Route path="*" element={<NotFoundPage />} />
-     </Routes>
-    </Routes>
+    <h1 className="text-[50px] font-bold text-red-500">
+      tôi đang làm bài ktra 
+    </h1>
   )
 }
-
-export default App

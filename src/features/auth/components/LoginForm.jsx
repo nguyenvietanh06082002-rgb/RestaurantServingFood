@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import { ROUTES } from "@/constants";
+import { ROLES } from "../data/users";
 import { login } from "../services/authService";
+import "./LoginForm.css";
 
 export function LoginForm({ onLogin }) {
   const navigate = useNavigate();
@@ -17,7 +19,7 @@ export function LoginForm({ onLogin }) {
     }
 
     onLogin(user);
-    navigate(ROUTES.PROFILE);
+    navigate(user.role === ROLES.ADMIN ? ROUTES.ADMIN : ROUTES.PROFILE);
   };
 
   const handleBack = () => {
@@ -25,24 +27,35 @@ export function LoginForm({ onLogin }) {
   };
 
   return (
-    <form onSubmit={handleLogin}>
+    <form className="login-form" onSubmit={handleLogin}>
+      <label htmlFor="username">Tên đăng nhập</label>
       <input
-        placeholder="Tên đăng nhập"
-        value={username} 
-        onChange={(e) => setUsername(e.target.value)} 
+        id="username"
+        name="username"
+        type="text"
+        autoComplete="username"
+        required
+        value={username}
+        onChange={(event) => setUsername(event.target.value)}
       />
+
+      <label htmlFor="password">Mật khẩu</label>
       <input
-        type="password" 
-        placeholder="Mật khẩu"
+        id="password"
+        name="password"
+        type="password"
+        autoComplete="current-password"
+        required
         value={password}
-        onChange={(e) => setPassword(e.target.value)}
+        onChange={(event) => setPassword(event.target.value)}
       />
-      <button type="submit">Đăng nhập</button>
-      <button type="button" onClick={handleBack}>Quay lại</button>
 
       {error && <p style={{ color: "red" }}>{error}</p>}
 
-      <p>Tài khoản thử: <b>admin / 123</b> (quản trị) hoặc <b>lam / 123</b> (người dùng thường)</p>
+      <button type="submit">Đăng nhập</button>
+      <button className="login-back-button" type="button" onClick={handleBack}>
+        Quay lại
+      </button>
     </form>
   );
 }

@@ -1,0 +1,13 @@
+{
+  // File này giúp VS Code hiểu đường tắt "@/" để gợi ý code và nhảy tới file khi bấm Ctrl + click.
+  // Lưu ý: file này CHỈ dành cho VS Code. Lúc chạy app, alias "@" được khai báo trong vite.config.js
+  "compilerOptions": {
+    "paths": {
+      // "@/*" (mọi thứ sau @/) tương ứng với "./src/*"
+      // Ví dụ: "@/constants" sẽ được hiểu là "./src/constants"
+      "@/*": ["./src/*"]
+    }
+  },
+  // include: chỉ áp dụng cho các file trong thư mục src
+  "include": ["src"]
+}

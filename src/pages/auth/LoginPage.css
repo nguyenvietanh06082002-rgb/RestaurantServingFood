@@ -1,0 +1,67 @@
+.login-page {
+  padding: 32px 5%;
+  background: #fbf3ef;
+}
+
+.login-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1120px;
+  min-height: 580px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 12px 30px rgb(40 25 20 / 12%);
+}
+
+.login-promo {
+  padding: 48px;
+  color: #fff;
+  background:
+    linear-gradient(rgb(35 31 28 / 72%), rgb(35 31 28 / 82%)),
+    url('https://lh3.googleusercontent.com/aida-public/AB6AXuCWSVowTAoV_2U4AEtFZ6x2TMjUE-dyHwnmpIADdaW92lJycDTKrd-pSAwKDxKPbyW58nFS7eTWrPqF2IBISd6Lejz5mW45kJIfG3nk2-8jgp7smkPxm5ao37f-218ypwIBxDhUwrij0Rfn_Xb41Mctheu0m4ZsnxnhVvIgQroYF6JRleImH4VvjQNl8Twc-qEm7oxfE2So_ZheCjv_18dWrQycFMphhqXiOnIIuW0') center / cover;
+}
+
+.login-panel {
+  padding: 48px;
+}
+
+.login-success {
+  margin: 18px 0;
+  color: #38734a;
+  font-size: 14px;
+}
+
+.login-register-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 20px;
+  padding: 14px 16px;
+  background: #fbf3ef;
+  color: #705e58;
+  font-size: 13px;
+}
+
+.login-register-link a {
+  color: #8f211b;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 760px) {
+  .login-card {
+    grid-template-columns: 1fr;
+  }
+
+  .login-promo {
+    min-height: 240px;
+  }
+
+  .login-panel {
+    padding: 28px 22px;
+  }
+}

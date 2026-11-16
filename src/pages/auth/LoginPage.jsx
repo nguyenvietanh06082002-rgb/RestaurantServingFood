@@ -26,7 +26,10 @@ export function LoginPage({ onLogin }) {
               Đăng ký thành công. Vui lòng đăng nhập để tiếp tục.
             </p>
           )}
-          <LoginForm onLogin={onLogin} />
+          <LoginForm
+            onLogin={onLogin}
+            initialUsername={location.state?.username || ""}
+          />
           <div className="login-register-link">
             <span>Chưa có tài khoản?</span>
             <Link to={ROUTES.REGISTER}>Đăng ký thành viên</Link>

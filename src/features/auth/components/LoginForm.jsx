@@ -5,14 +5,14 @@ import { ROLES } from "../data/users";
 import { login } from "../services/authService";
 import "./LoginForm.css";
 
-export function LoginForm({ onLogin }) {
+export function LoginForm({ onLogin, initialUsername = "" }) {
   const navigate = useNavigate();
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState(initialUsername);
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const handleLogin = (event) => {
     event.preventDefault();
-    const user = login(username, password);
+    const user = login(username.trim(), password);
     if (!user) {
       setError("Sai tên đăng nhập hoặc mật khẩu");
       return;

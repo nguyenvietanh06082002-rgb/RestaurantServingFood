@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import MenuShowcase from "../../components/modals/MenuShowcase";
 import { categories } from "../../hooks/data/foods";
 import banquetHall from "../../assets/images/banquet-hall.png";
-import cool from "../../assets/images/cool.png"
 import right from "../../assets/images/right.png";
 import tick from "../../assets/images/tick.png";
 import location from "../../assets/images/location.png";

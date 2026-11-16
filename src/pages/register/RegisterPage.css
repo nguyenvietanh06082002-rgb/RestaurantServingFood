@@ -1,0 +1,170 @@
+.register-page {
+  padding: 32px 5%;
+  background: #fbf3ef;
+}
+
+.register-card {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  max-width: 1120px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 12px 30px rgb(40 25 20 / 12%);
+}
+
+.register-promo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 640px;
+  padding: 48px;
+  color: #fff;
+  background:
+    linear-gradient(rgb(35 31 28 / 72%), rgb(35 31 28 / 86%)),
+    url("https://lh3.googleusercontent.com/aida-public/AB6AXuCWSVowTAoV_2U4AEtFZ6x2TMjUE-dyHwnmpIADdaW92lJycDTKrd-pSAwKDxKPbyW58nFS7eTWrPqF2IBISd6Lejz5mW45kJIfG3nk2-8jgp7smkPxm5ao37f-218ypwIBxDhUwrij0Rfn_Xb41Mctheu0m4ZsnxnhVvIgQroYF6JRleImH4VvjQNl8Twc-qEm7oxfE2So_ZheCjv_18dWrQycFMphhqXiOnIIuW0")
+      center / cover;
+}
+
+.register-promo__eyebrow,
+.register-panel__eyebrow {
+  color: #9c7640;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.register-promo h1 {
+  max-width: 470px;
+  margin: 0 0 20px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.register-promo p {
+  max-width: 420px;
+  color: #e7ddd3;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.register-promo__note {
+  padding-top: 20px;
+  border-top: 1px solid rgb(255 255 255 / 22%);
+}
+
+.register-panel {
+  padding: 42px 48px;
+}
+
+.register-panel h2 {
+  margin: 10px 0 6px;
+  color: #302722;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+}
+
+.register-panel__intro {
+  margin: 0 0 24px;
+  color: #766761;
+  font-size: 14px;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.register-form label {
+  margin-top: 3px;
+  color: #382d28;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.register-form input {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 42px;
+  padding: 0 12px;
+  border: 1px solid #eadbd3;
+  border-radius: 3px;
+  background: #fff8f4;
+  color: #302722;
+  font: inherit;
+}
+
+.register-form input:focus {
+  border-color: #8f211b;
+  outline: none;
+  box-shadow: 0 0 0 3px rgb(143 33 27 / 12%);
+}
+
+.register-form input::placeholder {
+  color: #a28f87;
+}
+
+.register-form button {
+  min-height: 48px;
+  margin-top: 10px;
+  border: 0;
+  background: #8f211b;
+  color: #fff;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 150ms ease;
+}
+
+.register-form button:hover {
+  background: #6a0205;
+}
+
+.register-error {
+  margin: 4px 0;
+  color: #a3221c;
+  font-size: 13px;
+}
+
+.register-login-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 18px;
+  padding: 13px 15px;
+  background: #fbf3ef;
+  color: #705e58;
+  font-size: 13px;
+}
+
+.register-login-link a {
+  color: #8f211b;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 760px) {
+  .register-page {
+    padding: 20px 4%;
+  }
+
+  .register-card {
+    grid-template-columns: 1fr;
+  }
+
+  .register-promo {
+    min-height: 250px;
+    padding: 28px;
+  }
+
+  .register-panel {
+    padding: 30px 24px;
+  }
+}

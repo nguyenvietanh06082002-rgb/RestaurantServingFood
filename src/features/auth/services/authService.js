@@ -8,7 +8,9 @@ export function login(username, password) {
     localStorage.getItem(REGISTERED_USERS_KEY) || "[]"
   );
   const found = [...FAKE_USERS, ...registeredUsers].find(
-    (u) => u.username === username && u.password === password
+    (u) =>
+      u.username.toLowerCase() === username.toLowerCase() &&
+      u.password === password
   );
 
   if (!found) return null;

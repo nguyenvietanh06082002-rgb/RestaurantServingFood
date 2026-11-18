@@ -22,7 +22,7 @@ export default function App() {
 
   return (
     <>
-      <Header user={user} />
+      <Header user={user} onLogout={handleLogout} />
       <Routes>
         <Route path={ROUTES.HOME} element={<HomePage />} />
         <Route path={ROUTES.LOGIN} element={<LoginPage onLogin={setUser} />} />

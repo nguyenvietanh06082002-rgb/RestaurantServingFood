@@ -1,11 +1,185 @@
+import { useState } from "react";
+import { Link } from "react-router";
+import { ROUTES } from "@/constants";
+import banquetHall from "../../assets/images/banquet-hall.png";
+import homeIcon from "../../assets/images/home.png";
+import informationIcon from "../../assets/images/information.png";
+import memberIcon from "../../assets/images/member.png";
+import reservationIcon from "../../assets/images/table.png";
+import settingsIcon from "../../assets/images/settings.png";
+import logoutIcon from "../../assets/images/logout.png";
+
+const adminSections = [
+  {
+    label: "Home",
+    description: "Tổng quan hoạt động quản trị nhà hàng.",
+    icon: homeIcon,
+  },
+  {
+    label: "Information",
+    description: "Xem và cập nhật thông tin nhà hàng.",
+    icon: informationIcon,
+  },
+  {
+    label: "Member",
+    description: "Quản lý các thành viên của nhà hàng.",
+    icon: memberIcon,
+  },
+  {
+    label: "Reserve a Table",
+    description: "Theo dõi và quản lý thông tin đặt bàn.",
+    icon: reservationIcon,
+  },
+  {
+    label: "Settings",
+    description: "Tùy chỉnh các thiết lập quản trị.",
+    icon: settingsIcon,
+  },
+];
+
 export function AdminPage({ onLogout }) {
+  const [activeSection, setActiveSection] = useState("Home");
+  const activePage = adminSections.find(
+    (section) => section.label === activeSection,
+  );
+
   return (
-    <div>
-      <h1>Trang quản trị</h1>
-      <p>Chào mừng ông chủ trở về!!!</p>
-      <button type="button" onClick={onLogout}>
-        Đăng xuất
-      </button>
-    </div>
+    <main className="min-h-[calc(100vh-5rem)] bg-[#f2f7f7] text-[#352722]">
+      <div className="mx-auto flex min-h-[calc(100vh-5rem)] max-w-[1600px] flex-col md:flex-row">
+        {/*SideBar*/}
+        <aside className="flex w-full shrink-0 flex-col border-b border-[#E9E2DC] bg-white px-4 py-5 md:min-h-[calc(100vh-5rem)] md:w-64 md:border-b-0 md:border-r md:px-5 md:py-7">
+          <div className="mb-5 flex items-center gap-3 px-2 md:mb-10">
+            <div>
+              <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#2b219e]">
+                Restaurant
+              </p>
+              <h1 className="text-lg font-bold tracking-tight">Admin Panel</h1>
+            </div>
+          </div>
+
+          <nav aria-label="Điều hướng quản trị" className="flex-1">
+            <p className="mb-3 hidden px-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#2b219e] md:block">
+              Workspace
+            </p>
+            <ul className="flex gap-2 overflow-x-auto pb-1 md:flex-col md:overflow-visible md:pb-0">
+              {adminSections.map((section) => {
+                const isHomeLink = section.label === "Home";
+                const isActive = !isHomeLink && activeSection === section.label;
+                const itemClassName = `flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-left text-sm font-medium transition-colors md:py-3 ${
+                  isActive
+                    ? "bg-[#6A0205] text-white shadow-sm"
+                    : "text-[#2b219e] hover:bg-[#ed9121] hover:text-[#6A0205]" //Màu các mục trong sidebar
+                }`;
+                const itemContent = (
+                  <>
+                    <img
+                      src={section.icon}
+                      alt=""
+                      aria-hidden="true"
+                      className={`h-[18px] w-[18px] shrink-0 object-contain`}
+                    />
+                    <span className="whitespace-nowrap">{section.label}</span>
+                  </>
+                );
+
+                return (
+                  <li key={section.label} className="shrink-0">
+                    {isHomeLink ? (
+                      <Link to={ROUTES.HOME} className={itemClassName}>
+                        {itemContent}
+                      </Link>
+                    ) : (
+                      <button
+                        type="button"
+                        aria-current={isActive ? "page" : undefined}
+                        onClick={() => setActiveSection(section.label)}
+                        className={itemClassName}
+                      >
+                        {itemContent}
+                      </button>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
+
+          {onLogout && (
+            <button
+              type="button"
+              onClick={onLogout}
+              className="mt-5 hidden items-center gap-3 rounded-xl px-3 py-3 text-sm font-medium text-[#2b219e] transition-colors hover:bg-[#ed9121] hover:text-[#6A0205] md:flex"
+            >
+              <img
+                src={logoutIcon}
+                alt=""
+                aria-hidden="true"
+                className="h-[18px] w-[18px] shrink-0 object-contain"
+              />
+              <span>Log out</span>
+            </button>
+          )}
+        </aside>
+          
+        <section className="flex-1 px-5 py-7 sm:px-8 sm:py-9 lg:px-12">
+          {/*Thông tin tổng quan*/}
+          <div className="mx-auto max-w-5xl">
+            {activeSection !== "Home" && (
+              <p className="text-sm text-[#8D8179]">
+                Admin <span className="px-1.5">/</span> {activePage.label}
+              </p>
+            )}
+
+            <div
+              className={`border-b border-[#E4DCD5] pb-6 ${
+                activeSection === "Home" ? "" : "mt-5"
+              }`}
+            >
+              {activeSection !== "Home" && (
+                <h2 className="text-3xl font-semibold tracking-tight text-[#352722]">
+                  {activePage.label}
+                </h2>
+              )}
+              <p
+                className={`text-sm leading-6 text-[#13a337] ${
+                  activeSection === "Home" ? "" : "mt-2"
+                }`}
+              >
+                {activePage.description}
+              </p>
+            </div>
+
+            {activeSection === "Home" ? (
+              <div className="mt-8 grid overflow-hidden rounded-2xl border border-[#EEE6DF] bg-white shadow-[0_8px_30px_rgba(53,39,34,0.04)] md:grid-cols-2">
+                <div className="flex flex-col justify-center p-6 sm:p-8">
+                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#A16A54]">
+                    Welcome back
+                  </p>
+                  <h3 className="mt-3 text-xl font-semibold">
+                    Quản lý nhà hàng của bạn tại một nơi.
+                  </h3>
+                  <p className="mt-2 text-sm leading-6 text-[#81756D]">
+                    Chọn một mục bên trái để quản lý thông tin, thành viên, đặt
+                    bàn và các thiết lập của nhà hàng.
+                  </p>
+                </div>
+                <img
+                  src={banquetHall}
+                  alt="Không gian nhà hàng"
+                  className="h-56 w-full object-cover md:h-full md:min-h-64"
+                />
+              </div>
+            ) : (
+              <div className="mt-8 rounded-2xl border border-dashed border-[#DCCFC5] bg-white/70 px-6 py-12 text-center">
+                <h3 className="text-lg font-semibold">{activeSection}</h3>
+                <p className="mx-auto mt-2 max-w-lg text-sm leading-6 text-[#81756D]">
+                  Khu vực này đã sẵn sàng để bạn bổ sung các chức năng quản lý.
+                </p>
+              </div>
+            )}
+          </div>
+        </section>
+      </div>
+    </main>
   );
 }

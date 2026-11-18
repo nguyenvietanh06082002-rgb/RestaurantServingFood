@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../../assets/images/logoNH.png";
 import human from "../../assets/images/human.png";
 import { Link } from "react-router";
 import { ROUTES } from "@/constants";
 import { ROLES } from "@/features/auth";
 
-export function Header({ user }) {
+export function Header({ user, onLogout }) {
+  const [accountMenuOpen, setAccountMenuOpen] = useState(false);
+
   const accountRoute =
     user?.role === ROLES.ADMIN ? ROUTES.ADMIN : ROUTES.PROFILE;
 
@@ -60,14 +62,57 @@ export function Header({ user }) {
           </button>
 
           {user ? (
-            <Link
-              to={accountRoute}
-              aria-label="Trang tài khoản"
-              title={user.name}
-              className="bg-[#6A0205] text-white rounded-full w-9 h-9 flex items-center justify-center"
-            >
-              <img src={human} alt="" className="w-[12px] h-[12px]" />
-            </Link>
+            user.role === ROLES.ADMIN ? (
+              <div className="relative">
+                <button
+                  type="button"
+                  aria-label="Mở menu tài khoản"
+                  aria-haspopup="menu"
+                  aria-expanded={accountMenuOpen}
+                  onClick={() => setAccountMenuOpen((open) => !open)}
+                  className="bg-[#6A0205] text-white rounded-full w-9 h-9 flex items-center justify-center"
+                >
+                  <img src={human} alt="" className="w-[12px] h-[12px]" />
+                </button>
+
+                {accountMenuOpen && (
+                  <div
+                    role="menu"
+                    className="absolute right-0 top-full z-50 mt-2 w-48 rounded bg-white py-1 shadow-lg"
+                  >
+                    <Link
+                      to={ROUTES.PROFILE}
+                      role="menuitem"
+                      onClick={() => setAccountMenuOpen(false)}
+                      className="block px-4 py-2 text-sm text-[#49332D] hover:bg-[#FFF9F5]"
+                    >
+                      Thông tin cá nhân
+                    </Link>
+
+                    <button
+                      type="button"
+                      role="menuitem"
+                      onClick={() => {
+                        setAccountMenuOpen(false);
+                        onLogout();
+                      }}
+                      className="block w-full px-4 py-2 text-left text-sm text-[#49332D] hover:bg-[#FFF9F5]"
+                    >
+                      Đăng xuất
+                    </button>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <Link
+                to={accountRoute}
+                aria-label="Trang tài khoản"
+                title={user.name}
+                className="bg-[#6A0205] text-white rounded-full w-9 h-9 flex items-center justify-center"
+              >
+                <img src={human} alt="" className="w-[12px] h-[12px]" />
+              </Link>
+            )
           ) : (
             <Link
               to={ROUTES.LOGIN}

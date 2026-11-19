@@ -9,6 +9,8 @@ import { RegisterPage } from "@/pages/register";
 import { ProfilePage } from "@/pages/profile";
 import { AdminPage } from "@/pages/admin";
 import { ForbiddenPage, NotFoundPage } from "@/pages/errors";
+import ProductsPage from "@/pages/products/ProductsPage";
+import SpacesPage from "@/pages/spaces/SpacesPage";
 
 export default function App() {
   const navigate = useNavigate();
@@ -25,6 +27,8 @@ export default function App() {
       <Header user={user} onLogout={handleLogout} />
       <Routes>
         <Route path={ROUTES.HOME} element={<HomePage />} />
+        <Route path={ROUTES.PRODUCTS} element={<ProductsPage />} />
+        <Route path={ROUTES.SPACES} element={<SpacesPage />} />
         <Route path={ROUTES.LOGIN} element={<LoginPage onLogin={setUser} />} />
         <Route path={ROUTES.REGISTER} element={<RegisterPage />} />
         <Route

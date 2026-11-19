@@ -1,3 +1,8 @@
 export { LoginForm, ProtectedRoute } from "./components"; 
 export { ROLES } from "./data/users"; 
-export { logout, getCurrentUser, registerUser } from "./services/authService";
+export {
+  logout,
+  getCurrentUser,
+  getRegisteredUsers,
+  registerUser,
+} from "./services/authService";

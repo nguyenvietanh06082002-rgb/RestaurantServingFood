@@ -8,6 +8,8 @@ import location from "../../assets/images/location.png";
 import email from "../../assets/images/email.png";
 import phone from "../../assets/images/phone.png";
 import time from "../../assets/images/time.png";
+import bar from "../../assets/images/bar.png";
+import cool from "../../assets/images/cool.png";
 
 const dishes = categories.flatMap((category) => category.dishes);
 
@@ -203,7 +205,7 @@ const HomePage = () => {
               <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="h-80 rounded-lg overflow-hidden shadow-md group relative">
                   <img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2eWkBcxNtCgJWn3YnbP8nezQqG4i6RfR7LM71jUIJzg&s=10"
+                    src={bar}
                     alt="Bar Counter"
                     className="w-full h-full object-cover group-hover:scale-105 transition duration-700"
                   />
@@ -217,7 +219,7 @@ const HomePage = () => {
 
                 <div className="h-80 rounded-lg overflow-hidden shadow-md group relative">
                   <img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYY0gmeELCwHRu7xMkax9aVbPzoRNMRnsYwa_ZiMIAQQ&s=10"
+                    src={cool}
                     alt="Phòng VIP"
                     className="w-full h-full object-cover group-hover:scale-105 transition duration-700"
                   />
@@ -272,7 +274,7 @@ const HomePage = () => {
 
               <a
                 href="#reservation"
-                className="w-full sm:w-auto px-8 py-4 bg-[#8B1E19] text-white text-sm font-semibold rounded uppercase tracking-wider hover:bg-[#6A0205] transition duration-300 text-center hover:scale-110 transition duration-300"
+                className="w-full sm:w-auto px-8 py-4 bg-[#8B1E19] text-white text-sm font-semibold rounded uppercase tracking-wider hover:bg-[#6A0205] transition duration-300 text-center hover:scale-110"
               >
                 Điền phiếu đặt bàn
               </a>

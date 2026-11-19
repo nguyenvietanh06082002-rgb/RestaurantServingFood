@@ -47,6 +47,23 @@ export function registerUser({ name, email, username, password }) {
   return newUser;
 }
 
+export function getRegisteredUsers() {
+  const registeredUsers = JSON.parse(
+    localStorage.getItem(REGISTERED_USERS_KEY) || "[]"
+  );
+
+  if (!Array.isArray(registeredUsers)) {
+    throw new Error("Dữ liệu thành viên đã đăng ký không hợp lệ.");
+  }
+
+  return registeredUsers.map(({ id, name, username, email }) => ({
+    id,
+    name,
+    username,
+    email,
+  }));
+}
+
 export function logout() {
   localStorage.removeItem(STORAGE_KEY);
 }

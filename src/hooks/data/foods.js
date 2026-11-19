@@ -1,7 +1,7 @@
 export const categories = [
   {
     id: "grill",
-    name: "Lẩu & dê",
+    name: "Món chính",
     dishes: [
       {
         id: 1,
@@ -40,7 +40,7 @@ export const categories = [
   },
   {
     id: "seafood",
-    name: "Hải sản & biển",
+    name: "Hải sản",
     dishes: [
       {
         id: 4,

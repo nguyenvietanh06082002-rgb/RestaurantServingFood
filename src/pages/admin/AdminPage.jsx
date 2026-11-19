@@ -8,6 +8,7 @@ import memberIcon from "../../assets/images/member.png";
 import reservationIcon from "../../assets/images/table.png";
 import settingsIcon from "../../assets/images/settings.png";
 import logoutIcon from "../../assets/images/logout.png";
+import InformationSection from "./InformationSection";
 
 const adminSections = [
   {
@@ -141,7 +142,7 @@ export function AdminPage({ onLogout }) {
                 </h2>
               )}
               <p
-                className={`text-sm leading-6 text-[#13a337] ${
+                className={`text-sm leading-6 text-[#81756D] ${
                   activeSection === "Home" ? "" : "mt-2"
                 }`}
               >
@@ -152,13 +153,13 @@ export function AdminPage({ onLogout }) {
             {activeSection === "Home" ? (
               <div className="mt-8 grid overflow-hidden rounded-2xl border border-[#EEE6DF] bg-white shadow-[0_8px_30px_rgba(53,39,34,0.04)] md:grid-cols-2">
                 <div className="flex flex-col justify-center p-6 sm:p-8">
-                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#A16A54]">
-                    Welcome back
+                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#A16A54] text-[24px]">
+                    WELCOME BACK
                   </p>
                   <h3 className="mt-3 text-xl font-semibold">
-                    Quản lý nhà hàng của bạn tại một nơi.
+                    Quản lý nhà hàng của bạn tại đây.
                   </h3>
-                  <p className="mt-2 text-sm leading-6 text-[#81756D]">
+                  <p className="mt-2 text-sm leading-6 text-[#ea3131]">
                     Chọn một mục bên trái để quản lý thông tin, thành viên, đặt
                     bàn và các thiết lập của nhà hàng.
                   </p>
@@ -169,6 +170,8 @@ export function AdminPage({ onLogout }) {
                   className="h-56 w-full object-cover md:h-full md:min-h-64"
                 />
               </div>
+            ) : activeSection === "Information" ? (
+              <InformationSection />
             ) : (
               <div className="mt-8 rounded-2xl border border-dashed border-[#DCCFC5] bg-white/70 px-6 py-12 text-center">
                 <h3 className="text-lg font-semibold">{activeSection}</h3>

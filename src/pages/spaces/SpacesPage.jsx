@@ -1,6 +1,7 @@
 import banquetHall from "../../assets/images/banquet-hall.png";
 import bar from "../../assets/images/bar.png";
 import cool from "../../assets/images/cool.png";
+import "./SpacesPage.css";
 
 const spaces = [
   {
@@ -27,14 +28,14 @@ const spaces = [
 
 export default function SpacesPage() {
   return (
-    <main className="min-h-screen bg-[#FFF8F4] px-5 py-12 md:px-16">
+    <main className="spaces-page min-h-screen bg-[#FFF8F4]">
       <div className="mx-auto max-w-7xl">
         <header className="mb-10 text-center">
           <p className="mb-2 text-sm uppercase tracking-widest text-[#7D562D]">
             Party Boys
           </p>
 
-          <h1 className="font-serif text-4xl text-[#6A0205]">
+          <h1 className="spaces-title font-serif text-[#6A0205]">
             Không gian nhà hàng
           </h1>
 
@@ -46,7 +47,7 @@ export default function SpacesPage() {
 
         <section
           aria-label="Các khu vực trong nhà hàng"
-          className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+          className="spaces-grid"
         >
           {spaces.map((space) => (
             <article
@@ -56,7 +57,7 @@ export default function SpacesPage() {
               <img
                 src={space.image}
                 alt={space.name}
-                className="h-64 w-full object-cover"
+                className="spaces-image w-full object-cover"
               />
 
               <div className="p-5">

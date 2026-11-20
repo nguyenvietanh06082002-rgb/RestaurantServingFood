@@ -1,14 +1,15 @@
 import { categories } from "../../hooks/data/foods";
+import "./ProductsPage.css";
 
 export default function ProductsPage() {
   return (
-    <main className="min-h-screen bg-[#FFF8F4] px-5 py-12 md:px-16">
+    <main className="products-page min-h-screen bg-[#FFF8F4]">
       <div className="mx-auto max-w-7xl">
         <header className="mb-10 text-center">
           <p className="mb-2 text-sm uppercase tracking-widest text-[#7D562D]">
             Party Boys
           </p>
-          <h1 className="font-serif text-4xl text-[#6A0205]">
+          <h1 className="products-title font-serif text-[#6A0205]">
             Thực đơn
           </h1>
           <p className="mx-auto mt-3 max-w-2xl text-[#58413E]">
@@ -22,7 +23,7 @@ export default function ProductsPage() {
               {category.name}
             </h2>
 
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="products-grid">
               {category.dishes.map((dish) => (
                 <article
                   key={dish.id}

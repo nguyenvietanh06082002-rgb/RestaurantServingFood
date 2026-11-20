@@ -1,0 +1,47 @@
+.spaces-page {
+  padding: 3rem 4rem;
+}
+
+.spaces-title {
+  font-size: 2.25rem;
+}
+
+.spaces-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.spaces-image {
+  height: 16rem;
+}
+
+@media (max-width: 900px) {
+  .spaces-page {
+    padding: 2.5rem 2rem;
+  }
+
+  .spaces-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Điện thoại: một thẻ trên mỗi hàng */
+@media (max-width: 600px) {
+  .spaces-page {
+    padding: 2rem 1.25rem;
+  }
+
+  .spaces-title {
+    font-size: 1.8rem;
+  }
+
+  .spaces-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .spaces-image {
+    height: 14rem;
+  }
+}

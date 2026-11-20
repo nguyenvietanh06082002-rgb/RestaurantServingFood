@@ -3,7 +3,7 @@ import { Routes, Route, useNavigate } from "react-router";
 import { ROUTES } from "@/constants";
 import { ROLES, ProtectedRoute, logout, getCurrentUser } from "@/features/auth";
 import { Header } from "@/components/layout";
-import HomePage from "@/pages/home/homePage";
+import HomePage from "@/pages/home/HomePage";
 import { LoginPage } from "@/pages/auth";
 import { RegisterPage } from "@/pages/register";
 import { ProfilePage } from "@/pages/profile";

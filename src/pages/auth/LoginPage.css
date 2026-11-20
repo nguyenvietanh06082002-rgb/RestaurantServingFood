@@ -52,7 +52,7 @@
   text-underline-offset: 3px;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 900px) {
   .login-card {
     grid-template-columns: 1fr;
   }
@@ -63,5 +63,27 @@
 
   .login-panel {
     padding: 28px 22px;
+  }
+}
+
+/* Điện thoại nhỏ */
+@media (max-width: 420px) {
+  .login-page {
+    padding: 20px 4%;
+  }
+
+  .login-promo {
+    min-height: 190px;
+    padding: 28px 22px;
+  }
+
+  .login-panel {
+    padding: 24px 18px;
+  }
+
+  .login-register-link {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
   }
 }

@@ -10,6 +10,7 @@ import phone from "../../assets/images/phone.png";
 import time from "../../assets/images/time.png";
 import bar from "../../assets/images/bar.png";
 import cool from "../../assets/images/cool.png";
+import "./HomePage.css";
 
 const dishes = categories.flatMap((category) => category.dishes);
 
@@ -28,7 +29,7 @@ const HomePage = () => {
     <>
       <main className="w-full bg-[#FFF8F4]">
         {/* HERO BANNER */}
-        <section className="relative w-full min-h-[820px] flex items-center justify-center overflow-hidden bg-[#33302C]">
+        <section className="relative w-full home-hero flex items-center justify-center overflow-hidden bg-[#33302C]">
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
@@ -38,14 +39,14 @@ const HomePage = () => {
 
           <div className="absolute inset-0 bg-gradient-to-t from-[#33302C] via-[#33302C]/70 to-[#33302C]/50" />
 
-          <div className="relative z-10 max-w-4xl mx-auto px-5 md:px-16 pt-36 pb-20 text-center flex flex-col items-center">
+          <div className="relative z-10 max-w-4xl mx-auto px-5 md:px-16 pt-36 pb-20 text-center flex flex-col items-center home-hero__content">
             <div className="cursor-pointer hover:scale-110 transition duration-300 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-[#E6C280] backdrop-blur-md mb-6">
               <span className="text-[11px] uppercase tracking-widest font-semibold">
                 Fine Dining & Artisan Grill 
               </span>
             </div>
 
-            <h1 className="font-serif text-4xl md:text-6xl text-[#F7EFEA] tracking-tight mb-6 leading-tight">
+            <h1 className="font-serif text-4xl md:text-6xl text-[#F7EFEA] tracking-tight mb-6 leading-tight home-hero__title">
               Nhập cuộc vui cùng mọi người nào!!!
             </h1>
 

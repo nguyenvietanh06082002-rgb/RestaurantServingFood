@@ -150,7 +150,7 @@
   text-underline-offset: 3px;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 900px) {
   .register-page {
     padding: 20px 4%;
   }
@@ -166,5 +166,35 @@
 
   .register-panel {
     padding: 30px 24px;
+  }
+}
+
+/* Điện thoại nhỏ */
+@media (max-width: 420px) {
+  .register-page {
+    padding: 16px 4%;
+  }
+
+  .register-promo {
+    min-height: 210px;
+    padding: 24px 20px;
+  }
+
+  .register-promo h1 {
+    font-size: 30px;
+  }
+
+  .register-panel {
+    padding: 24px 18px;
+  }
+
+  .register-panel h2 {
+    font-size: 26px;
+  }
+
+  .register-login-link {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
   }
 }

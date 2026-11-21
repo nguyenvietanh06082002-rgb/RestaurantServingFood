@@ -2,12 +2,13 @@ import { Fragment, useEffect, useState } from "react";
 import { getRegisteredUsers } from "@/features/auth";
 import downIcon from "../../assets/images/down.png";
 import memberIcon from "../../assets/images/human.png";
+import "./InformationSection.css";
 
 const RESERVATIONS_KEY = "reservations";
 
 function getReservations() {
   const reservations = JSON.parse(
-    localStorage.getItem(RESERVATIONS_KEY) || "[]"
+    localStorage.getItem(RESERVATIONS_KEY) || "[]",
   );
 
   if (!Array.isArray(reservations)) {
@@ -17,7 +18,7 @@ function getReservations() {
   return reservations;
 }
 
-function InformationSection() {
+export function InformationSection() {
   const [members, setMembers] = useState([]);
   const [reservations, setReservations] = useState([]);
   const [membersError, setMembersError] = useState("");
@@ -51,9 +52,9 @@ function InformationSection() {
   return (
     <section
       aria-labelledby="registered-members-heading"
-      className="mt-8 overflow-hidden rounded-2xl border border-[#EEE6DF] bg-white shadow-[0_8px_30px_rgba(53,39,34,0.06)]"
+      className="information-section"
     >
-      <div className="flex flex-wrap items-end justify-between gap-3 border-b border-[#EEE6DF] px-5 py-5 sm:px-7">
+      <div className="information-header">
         <div>
           <h3
             id="registered-members-heading"
@@ -72,21 +73,26 @@ function InformationSection() {
 
       {(membersError || reservationsError) && (
         <div className="space-y-1 px-5 pt-4 sm:px-7" role="alert">
-          {membersError && <p className="text-sm text-red-700">{membersError}</p>}
+          {membersError && (
+            <p className="text-sm text-red-700">{membersError}</p>
+          )}
           {reservationsError && (
             <p className="text-sm text-red-700">{reservationsError}</p>
           )}
         </div>
       )}
 
-      <div className="overflow-x-auto">
-        <table className="w-full min-w-[360px] text-left">
+      <div className="information-table-wrap">
+        <table className="information-table">
           <thead className="bg-[#FCFAF8] text-xs uppercase tracking-wide text-[#81756D]">
             <tr>
               <th className="px-5 py-3 font-semibold sm:px-7" scope="col">
                 Thành viên
               </th>
-              <th className="px-5 py-3 text-right font-semibold sm:px-7" scope="col">
+              <th
+                className="px-5 py-3 text-right font-semibold sm:px-7"
+                scope="col"
+              >
                 Đặt bàn
               </th>
             </tr>
@@ -97,7 +103,7 @@ function InformationSection() {
               const memberReservations = reservations.filter(
                 (reservation) =>
                   reservation.memberId != null &&
-                  String(reservation.memberId) === String(member.id)
+                  String(reservation.memberId) === String(member.id),
               );
               const detailsId = `member-reservations-${member.id}`;
 
@@ -149,17 +155,21 @@ function InformationSection() {
                   </tr>
                   {isExpanded && (
                     <tr id={detailsId}>
-                      <td className="bg-[#FCFAF8] px-5 py-5 sm:px-7" colSpan={2}>
+                      <td
+                        className="bg-[#FCFAF8] px-5 py-5 sm:px-7"
+                        colSpan={2}
+                      >
                         {memberReservations.length > 0 ? (
                           <div className="space-y-4">
                             {memberReservations.map((reservation) => (
                               <article
                                 key={reservation.id}
-                                className="rounded-xl border border-[#EEE6DF] bg-white p-4"
+                                className="reservation-card"
                               >
                                 <div className="flex flex-wrap items-center justify-between gap-2">
                                   <h4 className="font-semibold text-[#352722]">
-                                    {reservation.spaceName || "Không gian chưa xác định"}
+                                    {reservation.spaceName ||
+                                      "Không gian chưa xác định"}
                                   </h4>
                                   <p
                                     className={`text-sm font-semibold ${
@@ -180,8 +190,11 @@ function InformationSection() {
                                 {reservation.spaceImage && (
                                   <img
                                     src={reservation.spaceImage}
-                                    alt={reservation.spaceName || "Không gian đặt bàn"}
-                                    className="mt-3 h-40 w-full rounded-lg object-cover sm:w-64"
+                                    alt={
+                                      reservation.spaceName ||
+                                      "Không gian đặt bàn"
+                                    }
+                                    className="reservation-image"
                                   />
                                 )}
                                 <div className="mt-4">
@@ -189,7 +202,7 @@ function InformationSection() {
                                     Thực đơn
                                   </p>
                                   {reservation.menuItems?.length ? (
-                                    <ul className="grid gap-3 sm:grid-cols-2">
+                                    <ul className="reservation-menu">
                                       {reservation.menuItems.map((item) => (
                                         <li
                                           key={item.id || item.name}
@@ -244,5 +257,3 @@ function InformationSection() {
     </section>
   );
 }
-
-export default InformationSection;

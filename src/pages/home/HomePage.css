@@ -26,3 +26,322 @@
     padding-left: 1rem;
   }
 }
+
+/* SIGNATURE MENU */
+.home-signature {
+  padding: 6rem 0;
+}
+
+.home-signature__inner {
+  width: calc(100% - 80px);
+}
+
+.home-signature__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  text-align: left;
+}
+
+.home-signature__title {
+  font-size: 2.25rem;
+}
+
+.home-signature__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.home-signature__image-wrap {
+  height: 256px;
+  overflow: hidden;
+}
+
+.home-signature__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.home-signature__details {
+  padding: 24px;
+}
+
+.home-signature__name-price {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+@media (max-width: 900px) {
+  .home-signature__inner {
+    width: calc(100% - 48px);
+  }
+
+  .home-signature__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .home-signature {
+    padding: 3.5rem 0;
+  }
+
+  .home-signature__inner {
+    width: calc(100% - 32px);
+  }
+
+  .home-signature__header {
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .home-signature__title {
+    font-size: 1.8rem;
+  }
+
+  .home-signature__grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .home-signature__image-wrap {
+    height: 220px;
+  }
+
+  .home-signature__details {
+    padding: 20px;
+  }
+}
+
+/*RESERVATION*/
+.home-reservation {
+  padding: 6rem 0;
+}
+
+.home-reservation__inner {
+  width: calc(100% - 80px);
+  max-width: 896px;
+  margin: 0 auto;
+}
+
+.home-reservation__title {
+  font-size: 2.25rem;
+}
+
+.home-reservation__card {
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  max-width: 672px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 0 auto;
+  padding: 32px;
+  border-radius: 12px;
+  background: rgb(255 255 255 / 5%);
+  text-align: left;
+}
+
+.home-reservation__contact {
+  min-width: 0;
+}
+
+.home-reservation__button {
+  flex-shrink: 0;
+}
+
+/* Tablet và điện thoại */
+@media (max-width: 760px) {
+  .home-reservation {
+    padding: 3.5rem 0;
+  }
+
+  .home-reservation__inner {
+    width: calc(100% - 32px);
+  }
+
+  .home-reservation__title {
+    font-size: 1.9rem;
+  }
+
+  .home-reservation__card {
+    flex-direction: column;
+    gap: 20px;
+    padding: 24px 20px;
+    text-align: center;
+  }
+
+  .home-reservation__button {
+    width: 100%;
+  }
+}
+
+/* Điện thoại nhỏ */
+@media (max-width: 420px) {
+  .home-reservation__card {
+    padding: 20px 16px;
+  }
+
+  .home-reservation__title {
+    font-size: 1.65rem;
+  }
+}
+
+/* RESTAURANT SPACE */
+.home-space {
+  padding: 6rem 0;
+}
+
+.home-space__inner {
+  width: calc(100% - 80px);
+}
+
+.home-space__layout {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  align-items: center;
+  gap: 40px;
+}
+
+.home-space__copy {
+  min-width: 0;
+}
+
+.home-space__title {
+  font-size: 2.25rem;
+}
+
+.home-space__gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.home-space__card {
+  position: relative;
+  height: 320px;
+}
+
+.home-space__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.home-space__caption {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+  background: linear-gradient(to top, rgb(51 48 44 / 80%), transparent);
+}
+
+/* Tablet: nội dung nằm trên, ảnh phía dưới */
+@media (max-width: 900px) {
+  .home-space__inner {
+    width: calc(100% - 48px);
+  }
+
+  .home-space__layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+/* Điện thoại */
+@media (max-width: 600px) {
+  .home-space {
+    padding: 3.5rem 0;
+  }
+
+  .home-space__inner {
+    width: calc(100% - 32px);
+  }
+
+  .home-space__title {
+    font-size: 1.9rem;
+  }
+
+  .home-space__gallery {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .home-space__card {
+    height: 240px;
+  }
+}
+
+/*Footer*/
+.home-footer__inner {
+  width: calc(100% - 80px);
+  padding: 64px 0;
+}
+
+.home-footer__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 40px;
+}
+
+.home-footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid #e9e1dc;
+  color: #8c716d;
+  font-size: 12px;
+}
+
+.home-footer__legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Tablet: hai khu vực trên mỗi hàng */
+@media (max-width: 900px) {
+  .home-footer__inner {
+    width: calc(100% - 48px);
+  }
+
+  .home-footer__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px;
+  }
+}
+
+/* Điện thoại */
+@media (max-width: 560px) {
+  .home-footer__inner {
+    width: calc(100% - 32px);
+    padding: 40px 0;
+  }
+
+  .home-footer__grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .home-footer__bottom {
+    align-items: flex-start;
+    flex-direction: column;
+    margin-top: 32px;
+  }
+
+  .home-footer__legal {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

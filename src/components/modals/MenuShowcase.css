@@ -1,0 +1,106 @@
+.showcase-section {
+  padding: 6rem 0;
+}
+
+.showcase-container {
+  width: calc(100% - 80px);
+}
+
+.showcase-card {
+  position: relative;
+  height: 460px;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.showcase-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.showcase-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgb(51 48 44 / 90%),
+    rgb(51 48 44 / 60%) 55%,
+    transparent
+  );
+}
+
+.showcase-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 40px;
+  color: #ffffff;
+}
+
+.showcase-title {
+  font-size: 2.25rem;
+}
+
+.showcase-price {
+  font-size: 1.5rem;
+}
+
+/* Tablet và điện thoại */
+@media (max-width: 760px) {
+  .showcase-section {
+    padding: 3rem 0;
+  }
+
+  .showcase-container {
+    width: calc(100% - 32px);
+  }
+
+  .showcase-card {
+    height: auto;
+    min-height: 420px;
+  }
+
+  .showcase-overlay {
+    background: linear-gradient(
+      to top,
+      rgb(51 48 44 / 95%),
+      rgb(51 48 44 / 65%) 65%,
+      rgb(51 48 44 / 10%)
+    );
+  }
+
+  .showcase-content {
+    position: relative;
+    min-height: 420px;
+    box-sizing: border-box;
+    padding: 24px;
+  }
+
+  .showcase-title {
+    font-size: 1.75rem;
+  }
+
+  .showcase-price {
+    font-size: 1.25rem;
+  }
+}
+
+/* Điện thoại nhỏ */
+@media (max-width: 420px) {
+  .showcase-container {
+    width: calc(100% - 24px);
+  }
+
+  .showcase-content {
+    padding: 20px;
+  }
+
+  .showcase-title {
+    font-size: 1.5rem;
+  }
+}

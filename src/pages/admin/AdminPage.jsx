@@ -8,7 +8,8 @@ import memberIcon from "../../assets/images/member.png";
 import reservationIcon from "../../assets/images/table.png";
 import settingsIcon from "../../assets/images/settings.png";
 import logoutIcon from "../../assets/images/logout.png";
-import InformationSection from "./InformationSection";
+import { InformationSection } from "./InformationSection";
+import "./AdminPage.css";
 
 const adminSections = [
   {
@@ -45,10 +46,10 @@ export function AdminPage({ onLogout }) {
   );
 
   return (
-    <main className="min-h-[calc(100vh-5rem)] bg-[#f2f7f7] text-[#352722]">
-      <div className="mx-auto flex min-h-[calc(100vh-5rem)] max-w-[1600px] flex-col md:flex-row">
+    <main className="admin-page min-h-[calc(100vh-5rem)]">
+      <div className="admin-layout mx-auto min-h-[calc(100vh-5rem)] max-w-[1600px]">
         {/*SideBar*/}
-        <aside className="flex w-full shrink-0 flex-col border-b border-[#E9E2DC] bg-white px-4 py-5 md:min-h-[calc(100vh-5rem)] md:w-64 md:border-b-0 md:border-r md:px-5 md:py-7">
+        <aside className="admin-sidebar">
           <div className="mb-5 flex items-center gap-3 px-2 md:mb-10">
             <div>
               <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#2b219e]">
@@ -62,7 +63,7 @@ export function AdminPage({ onLogout }) {
             <p className="mb-3 hidden px-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#2b219e] md:block">
               Workspace
             </p>
-            <ul className="flex gap-2 overflow-x-auto pb-1 md:flex-col md:overflow-visible md:pb-0">
+            <ul className="admin-menu">
               {adminSections.map((section) => {
                 const isHomeLink = section.label === "Home";
                 const isActive = !isHomeLink && activeSection === section.label;
@@ -109,7 +110,7 @@ export function AdminPage({ onLogout }) {
             <button
               type="button"
               onClick={onLogout}
-              className="mt-5 hidden items-center gap-3 rounded-xl px-3 py-3 text-sm font-medium text-[#2b219e] transition-colors hover:bg-[#ed9121] hover:text-[#6A0205] md:flex"
+              className="mt-5 flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-medium text-[#2b219e] transition-colors hover:bg-[#ed9121] hover:text-[#6A0205]"
             >
               <img
                 src={logoutIcon}
@@ -121,8 +122,8 @@ export function AdminPage({ onLogout }) {
             </button>
           )}
         </aside>
-          
-        <section className="flex-1 px-5 py-7 sm:px-8 sm:py-9 lg:px-12">
+
+        <section className="admin-content">
           {/*Thông tin tổng quan*/}
           <div className="mx-auto max-w-5xl">
             {activeSection !== "Home" && (
@@ -151,8 +152,8 @@ export function AdminPage({ onLogout }) {
             </div>
 
             {activeSection === "Home" ? (
-              <div className="mt-8 grid overflow-hidden rounded-2xl border border-[#EEE6DF] bg-white shadow-[0_8px_30px_rgba(53,39,34,0.04)] md:grid-cols-2">
-                <div className="flex flex-col justify-center p-6 sm:p-8">
+              <div className="admin-welcome-card">
+                <div className="admin-welcome-copy">
                   <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#A16A54] text-[24px]">
                     WELCOME BACK
                   </p>
@@ -167,7 +168,7 @@ export function AdminPage({ onLogout }) {
                 <img
                   src={banquetHall}
                   alt="Không gian nhà hàng"
-                  className="h-56 w-full object-cover md:h-full md:min-h-64"
+                  className="admin-welcome-image"
                 />
               </div>
             ) : activeSection === "Information" ? (

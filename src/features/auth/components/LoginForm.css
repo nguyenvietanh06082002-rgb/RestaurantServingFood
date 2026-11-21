@@ -86,3 +86,25 @@
 .login-form .login-back-button:hover {
   color: #8f211b;
 }
+
+/* Điện thoại nhỏ */
+@media (max-width: 420px) {
+  .login-form {
+    gap: 8px;
+  }
+
+  .login-form input {
+    min-height: 48px;
+    font-size: 16px;
+  }
+
+  .login-form button[type="submit"] {
+    min-height: 50px;
+  }
+
+  .login-form .login-back-button {
+    align-self: stretch;
+    min-height: 44px;
+    text-align: center;
+  }
+}

@@ -1,0 +1,111 @@
+.menu-banner {
+  position: relative;
+  height: 460px;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.menu-banner__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.menu-banner__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgb(51 48 44 / 90%),
+    rgb(51 48 44 / 60%) 55%,
+    transparent
+  );
+}
+
+.menu-banner__content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 40px;
+  color: #ffffff;
+}
+
+.menu-banner__description {
+  max-width: 420px;
+}
+
+.menu-banner__title {
+  margin: 0 0 8px;
+  font-size: 36px;
+}
+
+.menu-banner__dishes {
+  box-sizing: border-box;
+  display: flex;
+  width: 340px;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 20px;
+  border-radius: 12px;
+  background: rgb(255 255 255 / 10%);
+  list-style: none;
+}
+
+/* Điện thoại và tablet */
+@media (max-width: 760px) {
+  .menu-banner {
+    height: auto;
+    min-height: 460px;
+  }
+
+  .menu-banner__overlay {
+    background: linear-gradient(
+      to top,
+      rgb(51 48 44 / 95%),
+      rgb(51 48 44 / 65%) 70%,
+      rgb(51 48 44 / 10%)
+    );
+  }
+
+  .menu-banner__content {
+    position: relative;
+    min-height: 460px;
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-end;
+    padding: 24px;
+  }
+
+  .menu-banner__description {
+    max-width: none;
+  }
+
+  .menu-banner__title {
+    font-size: 28px;
+  }
+
+  .menu-banner__dishes {
+    width: 100%;
+  }
+}
+
+@media (max-width: 420px) {
+  .menu-banner__content {
+    padding: 18px;
+  }
+
+  .menu-banner__title {
+    font-size: 24px;
+  }
+
+  .menu-banner__dishes {
+    padding: 16px;
+  }
+}

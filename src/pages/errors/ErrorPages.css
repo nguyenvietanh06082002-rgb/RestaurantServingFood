@@ -1,0 +1,58 @@
+.error-page {
+  box-sizing: border-box;
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 24px;
+  background: #fbf3ef;
+  text-align: center;
+}
+
+.error-card {
+  width: 100%;
+  max-width: 700px;
+  padding: 48px 32px;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 0 12px 30px rgb(40 25 20 / 12%);
+}
+
+.error-card h1 {
+  margin: 0;
+  color: #6a0205;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 32px;
+  line-height: 1.35;
+}
+
+/* Tablet */
+@media (max-width: 760px) {
+  .error-page {
+    min-height: calc(100vh - 64px);
+    padding: 24px 16px;
+  }
+
+  .error-card {
+    padding: 36px 24px;
+  }
+
+  .error-card h1 {
+    font-size: 26px;
+  }
+}
+
+/* Điện thoại */
+@media (max-width: 420px) {
+  .error-page {
+    padding: 16px 12px;
+  }
+
+  .error-card {
+    padding: 28px 18px;
+  }
+
+  .error-card h1 {
+    font-size: 20px;
+  }
+}

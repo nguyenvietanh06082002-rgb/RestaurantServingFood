@@ -1,7 +1,11 @@
+import "./ErrorPages.css";
+
 export function NotFoundPage() {
   return (
-    <div>
-      <h1>404 - KHÔNG TÌM THẤY TRANG</h1>
-    </div>
-  )
+    <main className="error-page">
+      <section className="error-card">
+        <h1>404 - KHÔNG TÌM THẤY TRANG</h1>
+      </section>
+    </main>
+  );
 }

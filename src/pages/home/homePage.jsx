@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import MenuShowcase from "../../components/modals/MenuShowcase";
+import { MenuShowcase } from "../../components/modals/MenuShowcase";
 import { categories } from "../../hooks/data/foods";
 import banquetHall from "../../assets/images/banquet-hall.png";
 import right from "../../assets/images/right.png";
@@ -14,7 +14,7 @@ import "./HomePage.css";
 
 const dishes = categories.flatMap((category) => category.dishes);
 
-const HomePage = () => {
+export function HomePage() {
   const [selectedDish, setSelectedDish] = useState(dishes[0]);
 
   const handleSelectDish = (dish) => {
@@ -88,15 +88,15 @@ const HomePage = () => {
         <MenuShowcase selectedDish={selectedDish} />
 
         {/* SIGNATURE MENU */}
-        <section className="w-full py-24 bg-[#FAF2ED]" id="signature-menu">
-          <div className="max-w-7xl mx-auto px-5 md:px-16">
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 text-center md:text-left">
+        <section className="home-signature w-full bg-[#FAF2ED]" id="signature-menu">
+          <div className="home-signature__inner mx-auto max-w-7xl">
+            <div className="home-signature__header mb-10">
               <div>
                 <span className="text-xs uppercase tracking-widest text-[#7D562D] block mb-2 font-semibold">
                   Tinh tuyển ẩm thực
                 </span>
 
-                <h2 className="font-serif text-3xl md:text-4xl text-[#6A0205]">
+                <h2 className="home-signature__title font-serif text-[#6A0205]">
                   Món Tuyển Chọn Biểu Trưng
                 </h2>
               </div>
@@ -110,28 +110,24 @@ const HomePage = () => {
             </div>
 
             {/* DANH SÁCH MÓN ĂN */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="home-signature__grid">
               {dishes.map((dish) => (
                 <article
                   key={dish.id}
                   onClick={() => handleSelectDish(dish)}
-                  className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition duration-300 flex flex-col group cursor-pointer"
+                  className="home-signature__card bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition duration-300 flex flex-col group cursor-pointer"
                 >
-                  <div className="relative h-64 overflow-hidden">
+                  <div className="home-signature__image-wrap">
                     <img
                       src={dish.image}
                       alt={dish.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
                     />
-
-                    <span className="absolute top-3 left-3 px-3 py-1 bg-[#6A0205] text-white text-xs uppercase tracking-wider">
-                      Signature
-                    </span>
                   </div>
 
-                  <div className="p-6 flex flex-col flex-grow justify-between gap-4">
+                  <div className="home-signature__details flex flex-col flex-grow justify-between gap-4">
                     <div>
-                      <div className="flex items-baseline justify-between gap-2 mb-2">
+                      <div className="home-signature__name-price mb-2">
                         <h3 className="font-semibold text-lg text-[#1E1B18]">
                           {dish.name}
                         </h3>
@@ -161,15 +157,15 @@ const HomePage = () => {
         </section>
 
         {/* RESTAURANT SPACE */}
-        <section className="w-full py-24 bg-[#FFF8F4]">
-          <div className="max-w-7xl mx-auto px-5 md:px-16">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-              <div className="lg:col-span-5 flex flex-col gap-5">
+        <section className="home-space w-full bg-[#FFF8F4]">
+          <div className="home-space__inner mx-auto max-w-7xl">
+            <div className="home-space__layout">
+              <div className="home-space__copy flex flex-col gap-5">
                 <span className="text-xs uppercase tracking-widest text-[#7D562D] font-semibold">
                   Không gian & Kiến trúc
                 </span>
 
-                <h2 className="font-serif text-3xl md:text-4xl text-[#6A0205] leading-tight">
+                <h2 className="home-space__title font-serif text-3xl text-[#6A0205] leading-tight">
                   Không gian thân thiện thoải mái
                 </h2>
 
@@ -181,7 +177,8 @@ const HomePage = () => {
                 <div className="flex flex-col gap-4 text-sm text-[#49332D]">
                   <p className="flex items-center gap-2">
                     {" "}
-                    <img src={tick} alt="logoTick" className="w-3 h-3" /> Phòng tiệc hiện đại thoáng mát
+                    <img src={tick} alt="logoTick" className="w-3 h-3" /> 
+                    Phòng tiệc hiện đại thoáng mát
                   </p>
                   <p className="flex items-center gap-2">
                     {" "}
@@ -203,29 +200,29 @@ const HomePage = () => {
                 </a>
               </div>
 
-              <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="h-80 rounded-lg overflow-hidden shadow-md group relative">
+              <div className="home-space__gallery">
+                <div className="home-space__card rounded-lg overflow-hidden shadow-md group relative">
                   <img
                     src={bar}
                     alt="Bar Counter"
-                    className="w-full h-full object-cover group-hover:scale-105 transition duration-700"
+                    className="home-space__image"
                   />
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#33302C]/80 to-transparent flex items-end p-5">
+                  <div className="home-space__caption">
                     <span className="font-serif text-xl text-white">
                        Bar Counter
                     </span>
                   </div>
                 </div>
 
-                <div className="h-80 rounded-lg overflow-hidden shadow-md group relative">
+                <div className="home-space__card rounded-lg overflow-hidden shadow-md group relative">
                   <img
                     src={cool}
                     alt="Phòng VIP"
-                    className="w-full h-full object-cover group-hover:scale-105 transition duration-700"
+                    className="home-space__image"
                   />
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#33302C]/80 to-transparent flex items-end p-5">
+                  <div className="home-space__caption">
                     <span className="font-serif text-xl text-white">
                       Phòng VIP 
                     </span>
@@ -238,15 +235,15 @@ const HomePage = () => {
 
         {/* RESERVATION */}
         <section
-          className="w-full py-24 bg-[#33302C] text-white"
+          className="home-reservation w-full bg-[#33302C] text-white"
           id="reservation"
         >
-          <div className="max-w-4xl mx-auto px-5 md:px-16 text-center">
+          <div className="home-reservation__inner text-center">
             <span className="text-xs uppercase tracking-widest text-[#E6C280] block mb-3">
               Phòng Riêng
             </span>
 
-            <h2 className="font-serif text-3xl md:text-4xl mb-5">
+            <h2 className="home-reservation__title font-serif text-3xl mb-5">
               Đặt Bàn 
             </h2>
 
@@ -255,8 +252,8 @@ const HomePage = () => {
               bàn trước hoặc liên hệ hotline để được phục vụ riêng biệt.
             </p>
 
-            <div className="bg-white/5 backdrop-blur-md p-8 rounded-xl shadow-2xl max-w-2xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
-              <div className="text-center sm:text-left">
+            <div className="home-reservation__card">
+              <div className="home-reservation__contact">
                 <span className="text-xs uppercase tracking-wider text-[#E6C280] block mb-2">
                   Hotline hỗ trợ trực tiếp 24/7
                 </span>
@@ -275,7 +272,7 @@ const HomePage = () => {
 
               <a
                 href="#reservation"
-                className="w-full sm:w-auto px-8 py-4 bg-[#8B1E19] text-white text-sm font-semibold rounded uppercase tracking-wider hover:bg-[#6A0205] transition duration-300 text-center hover:scale-110"
+                className="home-reservation__button px-8 py-4 bg-[#8B1E19] text-white text-sm font-semibold rounded uppercase tracking-wider hover:bg-[#6A0205] transition duration-300 text-center"
               >
                 Điền phiếu đặt bàn
               </a>
@@ -285,9 +282,9 @@ const HomePage = () => {
       </main>
 
       {/* FOOTER */}
-      <footer className="w-full bg-[#FAF2ED] text-[#58413E]">
-        <div className="max-w-7xl mx-auto px-5 md:px-16 py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+      <footer className="home-footer w-full bg-[#FAF2ED] text-[#58413E]">
+        <div className="home-footer__inner mx-auto max-w-7xl">
+          <div className="home-footer__grid">
             {/* BRAND */}
             <div className="flex flex-col gap-5">
               <div>
@@ -394,10 +391,10 @@ const HomePage = () => {
             </div>
           </div>
 
-          <div className="mt-12 pt-6 border-t border-[#E9E1DC] flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[#8C716D]">
+          <div className="home-footer__bottom">
             <p>© 2025 PARTY BOYS - Fine Dining & Grill. All rights reserved.</p>
 
-            <div className="flex items-center gap-5">
+            <div className="home-footer__legal">
               <a href="#privacy" className="hover:text-[#6A0205]">
                 Chính sách bảo mật
               </a>
@@ -412,5 +409,3 @@ const HomePage = () => {
     </>
   );
 };
-
-export default HomePage;

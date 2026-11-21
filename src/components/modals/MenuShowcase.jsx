@@ -1,30 +1,31 @@
 import React from "react";
+import "./MenuShowcase.css";
 
-const MenuShowcase = ({ selectedDish }) => {
+export function MenuShowcase ({ selectedDish }) {
   if (!selectedDish) return null;
 
   return (
-    <section id="menu-showcase" className="w-full py-24 bg-[#FFF8F4]">
-      <div className="w-full max-w-[1500px] mx-auto px-5 md:px-10">
-        <div className="relative h-[460px] rounded-[20px] overflow-hidden">
+    <section id="menu-showcase" className="showcase-section w-full bg-[#FFF8F4]">
+      <div className="showcase-container w-full max-w-[1500px] mx-auto">
+        <div className="showcase-card">
           <img
             src={selectedDish.image}
             alt={selectedDish.name}
-            className="w-full h-full object-cover"
+            className="showcase-image"
           />
 
-          <div className="absolute inset-0 bg-gradient-to-r from-[#33302C]/90 via-[#33302C]/60 to-transparent" />
+          <div className="showcase-overlay" />
 
-          <div className="absolute inset-0 flex flex-col justify-end p-10 text-white">
+          <div className="showcase-content">
             <span className="text-xs uppercase tracking-widest text-[#E6C280] mb-3">
               Party Boys Signature
             </span>
 
-            <h2 className="font-bold text-4xl mb-3">
+            <h2 className="showcase-title font-bold mb-3">
               {selectedDish.name}
             </h2>
 
-            <p className="text-[#E6C280] text-2xl font-semibold mb-4">
+            <p className="showcase-price text-[#E6C280] font-semibold mb-4">
               {selectedDish.price}
             </p>
 
@@ -41,5 +42,3 @@ const MenuShowcase = ({ selectedDish }) => {
     </section>
   );
 };
-
-export default MenuShowcase;

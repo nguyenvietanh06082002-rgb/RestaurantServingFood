@@ -1,0 +1,101 @@
+.profile-page {
+  min-height: calc(100vh - 80px);
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 64px 24px;
+  background: #fbf3ef;
+}
+
+.profile-card {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 520px;
+  padding: 40px;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 0 12px 30px rgb(40 25 20 / 12%);
+}
+
+.profile-title {
+  margin: 0 0 24px;
+  color: #6a0205;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 32px;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.profile-info p {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 0;
+  padding: 14px 16px;
+  border-radius: 6px;
+  background: #fff8f4;
+  color: #58413e;
+}
+
+.profile-info span {
+  color: #7d562d;
+  font-weight: 700;
+}
+
+.profile-logout {
+  width: 100%;
+  min-height: 48px;
+  border: 0;
+  border-radius: 6px;
+  background: #8f211b;
+  color: #ffffff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.profile-logout:hover {
+  background: #6a0205;
+}
+
+/* Tablet */
+@media (max-width: 760px) {
+  .profile-page {
+    padding: 40px 16px;
+  }
+
+  .profile-card {
+    padding: 30px 24px;
+  }
+
+  .profile-title {
+    font-size: 28px;
+  }
+}
+
+/* Điện thoại nhỏ */
+@media (max-width: 420px) {
+  .profile-page {
+    padding: 24px 12px;
+  }
+
+  .profile-card {
+    padding: 24px 18px;
+  }
+
+  .profile-title {
+    font-size: 24px;
+  }
+
+  .profile-info p {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+  }
+}

@@ -1,11 +1,14 @@
 import React from "react";
 import "./MenuShowcase.css";
 
-export function MenuShowcase ({ selectedDish }) {
+export function MenuShowcase({ selectedDish, onPrevious, onNext }) {
   if (!selectedDish) return null;
 
   return (
-    <section id="menu-showcase" className="showcase-section w-full bg-[#FFF8F4]">
+    <section
+      id="menu-showcase"
+      className="showcase-section w-full bg-[#FFF8F4]"
+    >
       <div className="showcase-container w-full max-w-[1500px] mx-auto">
         <div className="showcase-card">
           <img
@@ -17,6 +20,23 @@ export function MenuShowcase ({ selectedDish }) {
           <div className="showcase-overlay" />
 
           <div className="showcase-content">
+            <button
+              type="button"
+              className="showcase-arrow showcase-arrow--left"
+              onClick={onPrevious}
+              aria-label="Món trước"
+            >
+              <span className="showcase-arrow__icon">‹</span>
+            </button>
+
+            <button
+              type="button"
+              className="showcase-arrow showcase-arrow--right"
+              onClick={onNext}
+              aria-label="Món tiếp theo"
+            >
+              <span className="showcase-arrow__icon">›</span>
+            </button>
             <span className="text-xs uppercase tracking-widest text-[#E6C280] mb-3">
               Party Boys Signature
             </span>
@@ -41,4 +61,4 @@ export function MenuShowcase ({ selectedDish }) {
       </div>
     </section>
   );
-};
+}

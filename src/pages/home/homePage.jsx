@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { MenuShowcase } from "../../components/modals/MenuShowcase";
+import { Link } from "react-router";
+import { ROUTES } from "@/constants";
 import { categories } from "../../hooks/data/foods";
 import banquetHall from "../../assets/images/banquet-hall.png";
 import right from "../../assets/images/right.png";
@@ -16,13 +18,24 @@ const dishes = categories.flatMap((category) => category.dishes);
 
 export function HomePage() {
   const [selectedDish, setSelectedDish] = useState(dishes[0]);
-
+  {
+    /* Chọn món */
+  }
   const handleSelectDish = (dish) => {
     setSelectedDish(dish);
 
     document
       .getElementById("menu-showcase")
       ?.scrollIntoView({ behavior: "smooth" });
+  };
+  {
+    /* Control left&right */
+  }
+  const moveDish = (step) => {
+    const currentIndex = dishes.indexOf(selectedDish);
+    const nextIndex = (currentIndex + step + dishes.length) % dishes.length;
+
+    setSelectedDish(dishes[nextIndex]);
   };
 
   return (
@@ -42,7 +55,7 @@ export function HomePage() {
           <div className="relative z-10 max-w-4xl mx-auto px-5 md:px-16 pt-36 pb-20 text-center flex flex-col items-center home-hero__content">
             <div className="cursor-pointer hover:scale-110 transition duration-300 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-[#E6C280] backdrop-blur-md mb-6">
               <span className="text-[11px] uppercase tracking-widest font-semibold">
-                Fine Dining & Artisan Grill 
+                Fine Dining & Artisan Grill
               </span>
             </div>
 
@@ -51,8 +64,8 @@ export function HomePage() {
             </h1>
 
             <p className="text-lg text-[#F4ECE7] max-w-2xl opacity-90 mb-10 font-light leading-relaxed">
-              Tham gia các bữa tiệc sôi động và thỏa thích vui chơi
-              Party Boys luôn chào đón bạn!!!
+              Tham gia các bữa tiệc sôi động và thỏa thích vui chơi Party Boys
+              luôn chào đón bạn!!!
             </p>
 
             <div className="flex flex-col sm:flex-row items-center gap-4">
@@ -68,8 +81,8 @@ export function HomePage() {
                 />
               </a>
 
-              <a
-                href="#signature-menu"
+              <Link
+                to={ROUTES.PRODUCTS}
                 className="cursor-pointer hover:scale-105 transition duration-300 w-full sm:w-auto px-8 py-4 bg-white/10 text-[#E6C280] backdrop-blur-md rounded text-sm font-semibold uppercase tracking-wider hover:bg-white/20 inline-flex items-center justify-center gap-2"
               >
                 Xem thực đơn
@@ -78,17 +91,24 @@ export function HomePage() {
                   alt=""
                   className="w-3 h-3 [filter:brightness(0)_saturate(100%)_invert(82%)_sepia(32%)_saturate(520%)_hue-rotate(349deg)_brightness(98%)]"
                 />
-              </a>
+              </Link>
             </div>
           </div>
         </section>
 
         {/* MENU SHOWCASE */}
 
-        <MenuShowcase selectedDish={selectedDish} />
+        <MenuShowcase
+          selectedDish={selectedDish}
+          onPrevious={() => moveDish(-1)}
+          onNext={() => moveDish(1)}
+        />
 
         {/* SIGNATURE MENU */}
-        <section className="home-signature w-full bg-[#FAF2ED]" id="signature-menu">
+        <section
+          className="home-signature w-full bg-[#FAF2ED]"
+          id="signature-menu"
+        >
           <div className="home-signature__inner mx-auto max-w-7xl">
             <div className="home-signature__header mb-10">
               <div>
@@ -101,12 +121,12 @@ export function HomePage() {
                 </h2>
               </div>
 
-              <a
-                href="#menu"
+              <Link
+                to={ROUTES.PRODUCTS}
                 className="text-sm text-[#6A0205] font-semibold hover:underline"
               >
                 Khám phá toàn bộ thực đơn →
-              </a>
+              </Link>
             </div>
 
             {/* DANH SÁCH MÓN ĂN */}
@@ -170,14 +190,15 @@ export function HomePage() {
                 </h2>
 
                 <p className="text-[15px] text-[#58413E] leading-relaxed text-justify">
-                  Giải tỏa căng thẳng, hòa mình vào nhịp điệu sôi động, PARTY BOYS mở ra cho bạn một không gian riêng để 
-                  bạn cùng gia đình bạn bè tạo ra những kỉ niệm đáng nhớ!
+                  Giải tỏa căng thẳng, hòa mình vào nhịp điệu sôi động, PARTY
+                  BOYS mở ra cho bạn một không gian riêng để bạn cùng gia đình
+                  bạn bè tạo ra những kỉ niệm đáng nhớ!
                 </p>
 
                 <div className="flex flex-col gap-4 text-sm text-[#49332D]">
                   <p className="flex items-center gap-2">
                     {" "}
-                    <img src={tick} alt="logoTick" className="w-3 h-3" /> 
+                    <img src={tick} alt="logoTick" className="w-3 h-3" />
                     Phòng tiệc hiện đại thoáng mát
                   </p>
                   <p className="flex items-center gap-2">
@@ -192,12 +213,12 @@ export function HomePage() {
                   </p>
                 </div>
 
-                <a
-                  href="#spaces"
+                <Link
+                  to={ROUTES.SPACES}
                   className="pt-2 text-sm text-[#6A0205] uppercase tracking-wider font-semibold hover:underline"
                 >
                   Chiêm ngưỡng không gian →
-                </a>
+                </Link>
               </div>
 
               <div className="home-space__gallery">
@@ -210,7 +231,7 @@ export function HomePage() {
 
                   <div className="home-space__caption">
                     <span className="font-serif text-xl text-white">
-                       Bar Counter
+                      Bar Counter
                     </span>
                   </div>
                 </div>
@@ -224,7 +245,7 @@ export function HomePage() {
 
                   <div className="home-space__caption">
                     <span className="font-serif text-xl text-white">
-                      Phòng VIP 
+                      Phòng VIP
                     </span>
                   </div>
                 </div>
@@ -244,7 +265,7 @@ export function HomePage() {
             </span>
 
             <h2 className="home-reservation__title font-serif text-3xl mb-5">
-              Đặt Bàn 
+              Đặt Bàn
             </h2>
 
             <p className="text-[#F4ECE7] max-w-xl mx-auto mb-10 font-light leading-relaxed">
@@ -266,7 +287,8 @@ export function HomePage() {
                 </a>
 
                 <p className="text-sm text-[#F4ECE7]/70 mt-2">
-                  Số 80 Đinh Công Tráng, phường Tân Định, Quận 1, Thành phố Hồ Chí Minh
+                  Số 80 Đinh Công Tráng, phường Tân Định, Quận 1, Thành phố Hồ
+                  Chí Minh
                 </p>
               </div>
 
@@ -317,7 +339,8 @@ export function HomePage() {
                 <p className="flex items-center gap-2">
                   {" "}
                   <img src={location} alt="logoLocation" className="w-3 h-3 " />
-                  Số 80 Đinh Công Tráng, phường Tân Định, Quận 1, Thành phố Hồ Chí Minh
+                  Số 80 Đinh Công Tráng, phường Tân Định, Quận 1, Thành phố Hồ
+                  Chí Minh
                 </p>
                 <p className="flex items-center gap-2">
                   {" "}
@@ -408,4 +431,4 @@ export function HomePage() {
       </footer>
     </>
   );
-};
+}

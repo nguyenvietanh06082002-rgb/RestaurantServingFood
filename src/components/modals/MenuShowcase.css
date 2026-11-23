@@ -42,6 +42,43 @@
   color: #ffffff;
 }
 
+.showcase-arrow {
+  position: absolute;
+  top: 40%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgb(255 255 255 / 45%);
+  border-radius: 50%;
+  color: #ffffff;
+  background: rgb(51 48 44 / 65%);
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.showcase-arrow__icon {
+  display: block;
+  line-height: 1;
+  transform: translateY(-2px);
+}
+
+.showcase-arrow:hover {
+  background: #8B1E19;
+}
+
+.showcase-arrow--left {
+  left: 8px;
+}
+
+.showcase-arrow--right {
+  right: 8px;
+}
+
 .showcase-title {
   font-size: 2.25rem;
 }

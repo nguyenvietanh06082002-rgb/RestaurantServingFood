@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Routes, Route, useNavigate } from "react-router";
+import { useEffect, useState } from "react";
+import { Routes, Route, useNavigate, useLocation } from "react-router";
 import { ROUTES } from "@/constants";
 import { ROLES, ProtectedRoute, logout, getCurrentUser } from "@/features/auth";
 import { Header } from "@/components/layout";
@@ -15,6 +15,15 @@ import SpacesPage from "@/pages/spaces/SpacesPage";
 export default function App() {
   const navigate = useNavigate();
   const [user, setUser] = useState(getCurrentUser());
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "auto",
+    });
+  }, [location.pathname]);
 
   const handleLogout = () => {
     logout();

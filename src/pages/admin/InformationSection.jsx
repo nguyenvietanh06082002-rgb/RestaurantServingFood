@@ -49,6 +49,32 @@ export function InformationSection() {
     return () => window.removeEventListener("storage", loadInformation);
   }, []);
 
+  const handleDeleteReservation = (reservationId, spaceName) => {
+    const confirmed = window.confirm(
+      `Bạn có chắc muốn xóa đặt bàn tại "${spaceName || "không gian này"}"?`,
+    );
+
+    if (!confirmed) return;
+
+    try {
+      const updatedReservations = getReservations().filter(
+        (reservation) => String(reservation.id) !== String(reservationId),
+      );
+
+      localStorage.setItem(
+        RESERVATIONS_KEY,
+        JSON.stringify(updatedReservations),
+      );
+      setReservations(updatedReservations);
+      setReservationsError("");
+    } catch (error) {
+      console.error("Không thể xóa thông tin đặt bàn.", error);
+      setReservationsError(
+        "Không thể xóa thông tin đặt bàn. Vui lòng thử lại.",
+      );
+    }
+  };
+
   return (
     <section
       aria-labelledby="registered-members-heading"
@@ -186,6 +212,18 @@ export function InformationSection() {
                                         ? "Chưa thanh toán"
                                         : "Chưa cập nhật"}
                                   </p>
+                                  <button
+                                    type="button"
+                                    onClick={() =>
+                                      handleDeleteReservation(
+                                        reservation.id,
+                                        reservation.spaceName,
+                                      )
+                                    }
+                                    className="rounded-lg bg-red-50 px-3 py-2 text-sm font-medium text-red-700 hover:bg-red-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-700"
+                                  >
+                                    Xóa đặt bàn
+                                  </button>
                                 </div>
                                 {reservation.spaceImage && (
                                   <img

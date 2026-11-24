@@ -1,4 +1,5 @@
 import { categories } from "../../hooks/data/foods";
+import { addDishToDraft } from "@/features/reservation/reservationDraft";
 import "./ProductsPage.css";
 
 export default function ProductsPage() {
@@ -30,11 +31,21 @@ export default function ProductsPage() {
                   className="overflow-hidden rounded-lg bg-white shadow-sm transition hover:shadow-lg"
                 >
                   {dish.image ? (
-                    <img
-                      src={dish.image}
-                      alt={dish.name}
-                      className="h-56 w-full object-cover"
-                    />
+                    <div className="relative">
+                      <img
+                        src={dish.image}
+                        alt={dish.name}
+                        className="h-56 w-full object-cover"
+                      />
+                      <button
+                        type="button"
+                        aria-label={`Thêm ${dish.name} vào đặt bàn`}
+                        onClick={() => addDishToDraft(dish)}
+                        className="absolute right-3 top-3 flex h-10 w-10 items-center justify-center rounded-full bg-[#6A0205] text-2xl text-white shadow hover:bg-[#8B1E19]"
+                      >
+                        +
+                      </button>
+                    </div>
                   ) : (
                     <div className="flex h-56 items-center justify-center bg-[#EEE7E1] text-sm text-[#7D562D]">
                       Ảnh sản phẩm sẽ được bổ sung

@@ -1,6 +1,7 @@
 import banquetHall from "../../assets/images/banquet-hall.png";
 import bar from "../../assets/images/bar.png";
 import cool from "../../assets/images/cool.png";
+import { selectSpaceInDraft } from "@/features/reservation/reservationDraft";
 import "./SpacesPage.css";
 
 const spaces = [
@@ -54,12 +55,21 @@ export default function SpacesPage() {
               key={space.id}
               className="overflow-hidden rounded-lg bg-white shadow-sm transition hover:shadow-lg"
             >
-              <img
-                src={space.image}
-                alt={space.name}
-                className="spaces-image w-full object-cover"
-              />
-
+              <div className="relative">
+                <img
+                  src={space.image}
+                  alt={space.name}
+                  className="spaces-image w-full object-cover"
+                />
+                <button
+                  type="button"
+                  aria-label={`Chọn không gian ${space.name}`}
+                  onClick={() => selectSpaceInDraft(space)}
+                  className="absolute right-3 top-3 flex h-10 w-10 items-center justify-center rounded-full bg-[#6A0205] text-2xl text-white shadow hover:bg-[#8B1E19]"
+                >
+                  +
+                </button>
+              </div>
               <div className="p-5">
                 <h2 className="font-serif text-2xl text-[#6A0205]">
                   {space.name}

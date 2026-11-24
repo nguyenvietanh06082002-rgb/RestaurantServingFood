@@ -88,9 +88,13 @@ export function Header({ user, onLogout }) {
           </nav>
 
           <div className="flex flex-col items-start gap-3 xl:flex-row xl:items-center">
-            <button className="bg-[#941F1A] text-white px-5 py-3 text-xs font-semibold hover:bg-[#6A0205] cursor-pointer transition duration-300">
+            <Link
+              to={ROUTES.RESERVATION}
+              onClick={() => setMobileMenuOpen(false)}
+              className="bg-[#941F1A] text-white px-5 py-3 text-xs font-semibold hover:bg-[#6A0205] cursor-pointer transition duration-300"
+            >
               ĐẶT BÀN NGAY
-            </button>
+            </Link>
 
             {user ? (
               user.role === ROLES.ADMIN ? (

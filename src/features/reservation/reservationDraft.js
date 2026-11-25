@@ -41,7 +41,35 @@ export function addDishToDraft(dish) {
   return saveReservationDraft({ ...draft, menuItems });
 }
 
+export function changeDishQuantity(dishId, difference) {
+  const draft = getReservationDraft();
+  const menuItems = draft.menuItems.map((item) => {
+    if (String(item.id) !== String(dishId)) return item;
+
+    return {
+      ...item,
+      quantity: Math.max(1, (item.quantity || 1) + difference),
+    };
+  });
+
+  return saveReservationDraft({ ...draft, menuItems });
+}
+
+export function removeDishFromDraft(dishId) {
+  const draft = getReservationDraft();
+  const menuItems = draft.menuItems.filter(
+    (item) => String(item.id) !== String(dishId),
+  );
+
+  return saveReservationDraft({ ...draft, menuItems });
+}
+
 export function selectSpaceInDraft(space) {
   const draft = getReservationDraft();
   return saveReservationDraft({ ...draft, space });
+}
+
+export function removeSpaceFromDraft() {
+  const draft = getReservationDraft();
+  return saveReservationDraft({ ...draft, space: null });
 }

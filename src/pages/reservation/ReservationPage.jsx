@@ -250,6 +250,18 @@ export default function ReservationPage() {
               Bạn có thể quay lại thực đơn hoặc danh sách không gian để thay đổi
               lựa chọn.
             </p>
+            {draft.space && draft.menuItems.length > 0 ? (
+              <Link
+                to={ROUTES.PAYMENT}
+                className="mt-5 flex w-full items-center justify-center rounded-xl bg-[#E6C280] px-5 py-3 text-sm font-bold text-[#4B1713] transition hover:bg-[#F0D49C] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              >
+                Tiến hành thanh toán
+              </Link>
+            ) : (
+              <p className="mt-5 text-xs leading-5 text-white/75">
+                Hãy chọn một không gian và ít nhất một món ăn để tiếp tục.
+              </p>
+            )}
           </aside>
         </div>
       </div>

@@ -12,6 +12,7 @@ import { ForbiddenPage, NotFoundPage } from "@/pages/errors";
 import ProductsPage from "@/pages/products/ProductsPage";
 import SpacesPage from "@/pages/spaces/SpacesPage";
 import ReservationPage from "@/pages/reservation/ReservationPage";
+import PaymentPage from "@/pages/payment/PaymentPage";
 
 export default function App() {
   const navigate = useNavigate();
@@ -40,6 +41,7 @@ export default function App() {
         <Route path={ROUTES.PRODUCTS} element={<ProductsPage />} />
         <Route path={ROUTES.SPACES} element={<SpacesPage />} />
         <Route path={ROUTES.RESERVATION} element={<ReservationPage />} />
+        <Route path={ROUTES.PAYMENT} element={<PaymentPage />} />
         <Route path={ROUTES.LOGIN} element={<LoginPage onLogin={setUser} />} />
         <Route path={ROUTES.REGISTER} element={<RegisterPage />} />
         <Route

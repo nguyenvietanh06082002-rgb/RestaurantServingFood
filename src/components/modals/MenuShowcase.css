@@ -68,7 +68,7 @@
 }
 
 .showcase-arrow:hover {
-  background: #8B1E19;
+  background: #8b1e19;
 }
 
 .showcase-arrow--left {
@@ -118,6 +118,21 @@
     padding: 24px;
   }
 
+  .showcase-arrow {
+    top: 16px;
+    width: 44px;
+    height: 44px;
+    transform: none;
+  }
+
+  .showcase-arrow--left {
+    left: 12px;
+  }
+
+  .showcase-arrow--right {
+    right: 12px;
+  }
+
   .showcase-title {
     font-size: 1.75rem;
   }
@@ -135,6 +150,20 @@
 
   .showcase-content {
     padding: 20px;
+  }
+
+  .showcase-arrow {
+    top: 12px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .showcase-arrow--left {
+    left: 10px;
+  }
+
+  .showcase-arrow--right {
+    right: 10px;
   }
 
   .showcase-title {

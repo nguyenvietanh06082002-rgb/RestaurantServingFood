@@ -1,0 +1,77 @@
+@media (min-width: 640px) {
+  .reservation-page {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .reservation-title {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+
+  .reservation-steps {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  .reservation-space-header {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .reservation-space-details {
+    flex-direction: row;
+  }
+
+  .reservation-space-image {
+    width: 14rem;
+    height: 10rem;
+  }
+
+  .reservation-menu-section {
+    padding: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .reservation-page {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .reservation-content-layout {
+    grid-template-columns: minmax(0, 1fr) 320px;
+  }
+
+  .reservation-summary {
+    position: sticky;
+    top: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .reservation-item {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .reservation-quantity-controls {
+    box-sizing: border-box;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    margin-top: 0;
+  }
+
+  .reservation-quantity-controls > button {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 380px) {
+  .reservation-quantity-controls {
+    justify-content: flex-start;
+    gap: 6px;
+  }
+}

@@ -12,6 +12,10 @@
   gap: 1.5rem;
 }
 
+.products-grid.products-list {
+  grid-template-columns: 1fr;
+}
+
 @media (max-width: 900px) {
   .products-page {
     padding: 2.5rem 2rem;

@@ -69,8 +69,8 @@ export function HomePage() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center gap-4">
-              <a
-                href="#reservation"
+              <Link
+                to={ROUTES.RESERVATION}
                 className="cursor-pointer hover:scale-105 transition duration-300 w-full sm:w-auto px-8 py-4 bg-[#8B1E19] text-white text-sm font-semibold rounded uppercase tracking-wider hover:bg-[#6A0205] inline-flex items-center justify-center gap-2"
               >
                 Đặt bàn trải nghiệm
@@ -79,7 +79,7 @@ export function HomePage() {
                   alt=""
                   className="w-3 h-3 brightness-0 invert"
                 />
-              </a>
+              </Link>
 
               <Link
                 to={ROUTES.PRODUCTS}

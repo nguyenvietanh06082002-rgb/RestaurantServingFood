@@ -1,0 +1,54 @@
+@media (min-width: 640px) {
+  .payment-page {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .payment-title {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+
+  .payment-summary-header {
+    padding-right: 1.75rem;
+    padding-left: 1.75rem;
+  }
+
+  .payment-summary-content,
+  .payment-dialog-card {
+    padding: 2rem;
+  }
+
+  .payment-dialog-actions {
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 1024px) {
+  .payment-page {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .payment-content-layout {
+    grid-template-columns: minmax(0, 1fr) 340px;
+  }
+
+  .payment-summary {
+    position: sticky;
+    top: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .payment-dialog-overlay {
+    overflow-y: auto;
+  }
+
+  .payment-dialog-card {
+    box-sizing: border-box;
+    max-height: calc(100vh - 2rem);
+    max-height: calc(100dvh - 2rem);
+    overflow-y: auto;
+  }
+}

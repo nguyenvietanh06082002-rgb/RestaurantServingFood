@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router";
 import { ROUTES } from "@/constants";
 import { getReservationDraft } from "@/features/reservation/reservationDraft";
+import "./PaymentPage.css";
 
 function getPriceValue(price) {
   return Number(String(price).replace(/[^\d]/g, ""));
@@ -22,13 +23,13 @@ export default function PaymentPage() {
   const canPay = Boolean(draft.space) && draft.menuItems.length > 0;
 
   return (
-    <main className="min-h-screen bg-[#FFF8F4] px-4 py-10 sm:px-6 lg:py-14">
+    <main className="payment-page min-h-screen bg-[#FFF8F4] px-4 py-10">
       <div className="mx-auto max-w-5xl">
         <header className="mb-9 text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#9A7652]">
             Party Boys · Fine Dining & Grill
           </p>
-          <h1 className="mt-3 font-serif text-3xl font-bold text-[#6A0205] sm:text-4xl">
+          <h1 className="payment-title mt-3 font-serif text-3xl font-bold text-[#6A0205]">
             Thanh toán
           </h1>
           <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-[#756860]">
@@ -53,9 +54,9 @@ export default function PaymentPage() {
             </Link>
           </section>
         ) : (
-          <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_340px]">
+          <div className="payment-content-layout grid gap-6">
             <section className="overflow-hidden rounded-2xl border border-[#EEE2D8] bg-white shadow-sm">
-              <div className="border-b border-[#F0E8E1] px-5 py-5 sm:px-7">
+              <div className="payment-summary-header border-b border-[#F0E8E1] px-5 py-5">
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#9A7652]">
                   Thông tin đơn đặt bàn
                 </p>
@@ -64,7 +65,7 @@ export default function PaymentPage() {
                 </h2>
               </div>
 
-              <div className="space-y-6 p-5 sm:p-7">
+              <div className="payment-summary-content space-y-6 p-5">
                 <div className="flex items-center gap-4">
                   {draft.space.image && (
                     <img
@@ -125,7 +126,7 @@ export default function PaymentPage() {
               </div>
             </section>
 
-            <aside className="h-fit rounded-2xl bg-[#6A0205] p-6 text-white shadow-lg lg:sticky lg:top-6">
+            <aside className="payment-summary h-fit rounded-2xl bg-[#6A0205] p-6 text-white shadow-lg">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#E6C280]">
                 Chi tiết thanh toán
               </p>
@@ -149,7 +150,7 @@ export default function PaymentPage() {
 
       {dialog && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-[#211815]/60 p-4"
+          className="payment-dialog-overlay fixed inset-0 z-[100] flex items-center justify-center bg-[#211815]/60 p-4"
           onMouseDown={(event) => {
             if (event.target === event.currentTarget) setDialog(null);
           }}
@@ -158,7 +159,7 @@ export default function PaymentPage() {
             role="dialog"
             aria-modal="true"
             aria-labelledby="payment-dialog-title"
-            className="w-full max-w-md rounded-2xl bg-white p-6 text-center shadow-2xl sm:p-8"
+            className="payment-dialog-card w-full max-w-md rounded-2xl bg-white p-6 text-center shadow-2xl"
           >
             {dialog === "confirm" ? (
               <>
@@ -178,7 +179,7 @@ export default function PaymentPage() {
                   </strong>{" "}
                   cho đơn đặt bàn này?
                 </p>
-                <div className="mt-6 flex flex-col-reverse justify-center gap-3 sm:flex-row">
+                <div className="payment-dialog-actions mt-6 flex flex-col-reverse justify-center gap-3">
                   <button
                     type="button"
                     onClick={() => setDialog(null)}

@@ -7,6 +7,7 @@ import {
 } from "@/features/reservation/reservationDraft";
 import { Link } from "react-router";
 import { ROUTES } from "@/constants";
+import "./ReservationPage.css";
 
 function getPriceValue(price) {
   return Number(String(price).replace(/[^\d]/g, ""));
@@ -32,13 +33,13 @@ export default function ReservationPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#FFF8F4] px-4 py-10 sm:px-6 lg:py-14">
+    <main className="reservation-page min-h-screen bg-[#FFF8F4] px-4 py-10">
       <div className="mx-auto max-w-6xl">
         <header className="mb-9 text-center">
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#9A7652]">
             Party Boys · Fine Dining & Grill
           </p>
-          <h1 className="mt-3 font-serif text-3xl font-bold text-[#6A0205] sm:text-4xl">
+          <h1 className="reservation-title mt-3 font-serif text-3xl font-bold text-[#6A0205]">
             Lựa chọn đặt bàn
           </h1>
           <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-[#756860]">
@@ -46,16 +47,16 @@ export default function ReservationPage() {
           </p>
         </header>
 
-        <div className="mb-8 grid grid-cols-3 gap-2 rounded-2xl border border-[#EEE2D8] bg-white p-4 text-center text-xs sm:text-sm">
+        <div className="reservation-steps mb-8 grid grid-cols-3 gap-2 rounded-2xl border border-[#EEE2D8] bg-white p-4 text-center text-xs">
           <div className="font-semibold text-[#6A0205]">1. Chọn không gian</div>
           <div className="font-semibold text-[#6A0205]">2. Chọn món ăn</div>
           <div className="font-semibold text-[#9A7652]">3. Xem lại</div>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
+        <div className="reservation-content-layout grid gap-6">
           <div className="space-y-6">
             <section className="overflow-hidden rounded-2xl border border-[#EEE2D8] bg-white shadow-sm">
-              <div className="flex items-center justify-between border-b border-[#F0E8E1] px-5 py-4 sm:px-6">
+              <div className="reservation-space-header flex items-center justify-between border-b border-[#F0E8E1] px-5 py-4">
                 <h2 className="text-lg font-semibold text-[#352722]">
                   Không gian đã chọn
                 </h2>
@@ -81,11 +82,11 @@ export default function ReservationPage() {
               </div>
 
               {draft.space ? (
-                <div className="flex flex-col sm:flex-row">
+                <div className="reservation-space-details flex flex-col">
                   <img
                     src={draft.space.image}
                     alt={draft.space.name}
-                    className="h-52 w-full object-cover sm:h-40 sm:w-56"
+                    className="reservation-space-image h-52 w-full object-cover"
                   />
                   <div className="p-5">
                     <p className="text-xs font-semibold uppercase tracking-wider text-[#9A7652]">
@@ -112,7 +113,7 @@ export default function ReservationPage() {
               )}
             </section>
 
-            <section className="rounded-2xl border border-[#EEE2D8] bg-white p-5 shadow-sm sm:p-6">
+            <section className="reservation-menu-section rounded-2xl border border-[#EEE2D8] bg-white p-5 shadow-sm">
               <div className="mb-4 flex items-center justify-between gap-3">
                 <h2 className="text-lg font-semibold text-[#352722]">
                   Món ăn đã chọn
@@ -130,7 +131,7 @@ export default function ReservationPage() {
                   {draft.menuItems.map((item) => (
                     <li
                       key={item.id}
-                      className="flex items-center gap-4 py-4 first:pt-0 last:pb-0"
+                      className="reservation-item flex items-center gap-4 py-4 first:pt-0 last:pb-0"
                     >
                       {item.image ? (
                         <img
@@ -149,7 +150,7 @@ export default function ReservationPage() {
                           Số lượng: {item.quantity}
                         </p>
                       </div>
-                      <div className="mt-2 flex items-center gap-2">
+                      <div className="reservation-quantity-controls mt-2 flex items-center gap-2">
                         <button
                           type="button"
                           aria-label={`Tăng số lượng ${item.name}`}
@@ -205,7 +206,7 @@ export default function ReservationPage() {
             </section>
           </div>
 
-          <aside className="h-fit rounded-2xl bg-[#6A0205] p-6 text-white shadow-lg lg:sticky lg:top-6">
+          <aside className="reservation-summary h-fit rounded-2xl bg-[#6A0205] p-6 text-white shadow-lg">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#E6C280]">
               Tóm tắt lựa chọn
             </p>
